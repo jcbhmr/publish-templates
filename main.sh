@@ -13,6 +13,6 @@ if [[ $INPUT_UPDATE_TAGS == true ]]; then
     version=$(jq -r .version "$INPUT_PATH/$id/devcontainer-feature.json")
     tag="feature_${id}_${version}"
     git tag "$tag" "$GITHUB_SHA"
-    git push origin "$tag" || echo "::warn::Unable to push $tag to $(git remote get-url origin)"
+    git push origin "$tag" || echo "::warning::Unable to push $tag to $(git remote get-url origin)"
   done
 fi
