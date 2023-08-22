@@ -1,0 +1,23 @@
+name: Publish Dev Container Features
+description: 🚀 Publish your Dev Container Features monorepo
+
+branding:
+  icon: upload-cloud
+  color: blue
+
+inputs:
+  path:
+    default: src
+  collection:
+    default: ghcr.io/${{ github.repository }}
+
+runs:
+  using: composite
+  steps:
+    - run: npm install -g @devcontainers/cli
+    - id: main
+      run: '"$GITHUB_ACTION_PATH/main.sh"'
+      shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_COLLECTION: ${{ inputs.collection }}
