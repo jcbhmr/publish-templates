@@ -14,7 +14,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: npm install -g @devcontainers/cli
+    - shell: bash
+      run: npm install -g @devcontainers/cli
     - id: main
       run: '"$GITHUB_ACTION_PATH/main.sh"'
       shell: bash
