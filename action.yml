@@ -10,6 +10,8 @@ inputs:
     default: src
   collection:
     default: ghcr.io/${{ github.repository }}
+  update-tags:
+    default: true
 
 runs:
   using: composite
@@ -22,3 +24,4 @@ runs:
       env:
         INPUT_PATH: ${{ inputs.path }}
         INPUT_COLLECTION: ${{ inputs.collection }}
+        INPUT_UPDATE_TAGS: ${{ inputs.update-tags }}
